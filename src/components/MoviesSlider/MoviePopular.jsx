@@ -30,7 +30,7 @@ const MoviePopular = () => {
     };
 
     return (
-        <div className="relative container mb-11">
+        <div className="mx-2 lg:container mb-11">
             <div className="flex justify-between mb-4">
                 <h2 className="text-xl font-primary">Popular</h2>
                 <Toggle
@@ -38,7 +38,7 @@ const MoviePopular = () => {
                     handleNext={handleNextPage}
                 />
             </div>
-            <div className="flex space-x-2 snap-x overflow-x-auto scroll-smooth">
+            <div className="flex space-x-2 lg:gap-5 snap-x overflow-x-auto scroll-smooth">
                 {isLoading
                     ? Array.from({ length: 10 }).map((_, index) => (
                           <MovieSkeleton key={index} />
