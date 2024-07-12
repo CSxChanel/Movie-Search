@@ -7,14 +7,14 @@ const VideoTrailer = ({ video }) => {
     return (
         <iframe
             key={video.id}
-            width="560"
-            height="315"
+            width="360"
+            height="225"
             src={`https://www.youtube.com/embed/${video.key}`}
             title={video.name}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            className="lg:w-[500px] md:w-[450px] w-[360px] lg:h-[300px] md:h-[250px] h-[200px] rounded-lg"
+            className="lg:w-[500px] md:w-[450px] lg:h-[300px] md:h-[250px] rounded-lg overflow-hidden"
         ></iframe>
     );
 };

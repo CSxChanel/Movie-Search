@@ -1,5 +1,6 @@
 // Home.jsx
-import React from "react";
+
+import React, { useState, useEffect } from "react";
 // Components
 import NavbarDate from "../components/NavbarDate/NavbarDate";
 import MovieTrending from "../components/MoviesSlider/MovieTrending";
@@ -9,8 +10,23 @@ import SearchMovie from "../components/SearchMovie";
 // Utils
 import Banner from "../utils/Banner.jsx";
 import ButtonUp from "../utils/ButtonUp";
-
+import SkeletonHome from "./SkeletonHome.jsx";
 const Home = () => {
+    //Loadong & Skeleton
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    }, []);
+
+    if (isLoading) {
+        return <SkeletonHome />;
+    }
+
     return (
         <main
             id="home"

@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { getMovieDetails, getMovieVideos } from "../../Api";
 import VideoTrailer from "./VideoTrailer";
 // import "./MovieDetail.css";
+import SkeletonDetail from "./SkeletonDetail.jsx";
 
 const MovieDetail = () => {
     const { id } = useParams();
@@ -17,9 +18,11 @@ const MovieDetail = () => {
             try {
                 const movieDetails = await getMovieDetails(id);
                 const movieVideos = await getMovieVideos(id);
-                setMovie(movieDetails);
-                setVideos(movieVideos);
-                setIsLoading(false);
+                setTimeout(() => {
+                    setMovie(movieDetails);
+                    setVideos(movieVideos);
+                    setIsLoading(false);
+                }, 2000); // Delay selama 1 detik
             } catch (error) {
                 console.error("Error fetching movie data:", error);
             }
@@ -29,7 +32,14 @@ const MovieDetail = () => {
     }, [id]);
 
     if (isLoading) {
-        return <p>Loading...</p>;
+        return (
+            <div className="min-h-screen">
+                <p className="font-semibold text-2xl my-5">Loading...</p>
+                <div className="flex justify-center items-center">
+                    <SkeletonDetail />
+                </div>
+            </div>
+        );
     }
 
     const posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
@@ -38,7 +48,7 @@ const MovieDetail = () => {
     );
 
     return (
-        <div className="mb-20">
+        <div className="mb-20 min-h-screen">
             <img src={posterUrl} alt={`${movie.title} Poster`} />
             <div className="container">
                 <h1 className="font-primary font-semibold text-3xl my-6">
@@ -49,11 +59,11 @@ const MovieDetail = () => {
                 </p>
                 <p className="mb-2">Overview: {movie.overview}</p>
             </div>
-            <div className="flex space-x-6 my-10 overflow-x-auto no-scrollbar scroll-smooth">
+            <div className="flex space-x-6 my-10 mx-2 overflow-x-auto scroll-smooth">
                 {youtubeVideos.map(video => (
                     <div
                         key={video.id}
-                        className="lg:w-[500px] md:w-[450px] w-[360px] lg:h-[300px] md:h-[250px] h-[200px] rounded-lg border"
+                        className="lg:w-[500px] md:w-[450px] lg:h-[300px] md:h-[250px] w-[360px] h-[225px] rounded-lg border"
                     >
                         <VideoTrailer video={video} />
                     </div>

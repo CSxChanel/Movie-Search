@@ -13,8 +13,10 @@ const MoviePopular = () => {
     const fetchMovies = async page => {
         setIsLoading(true);
         const response = await getPopular(page);
-        setMovies(response);
-        setIsLoading(false);
+        setTimeout(() => {
+            setMovies(response);
+            setIsLoading(false);
+        }, 1000);
     };
 
     useEffect(() => {

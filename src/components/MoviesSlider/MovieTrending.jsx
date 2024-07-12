@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { getTrending } from "../../Api";
 import Toggle from "../Toggle";
 import MovieCard from "../MovieCard";
-import MovieSkeleton from "../MovieSkeleton";
+import MovieSkeleton from "../MovieSkeleton.jsx";
 
 const MovieTrending = () => {
     const [movies, setMovies] = useState([]);
@@ -13,8 +13,10 @@ const MovieTrending = () => {
     const fetchMovies = async page => {
         setIsLoading(true);
         const response = await getTrending(page);
-        setMovies(response);
-        setIsLoading(false);
+        setTimeout(() => {
+            setMovies(response);
+            setIsLoading(false);
+        }, 1000);
     };
 
     useEffect(() => {

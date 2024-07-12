@@ -8,27 +8,20 @@ import MovieSkeleton from "../MovieSkeleton";
 const MovieUpcoming = () => {
     const [movies, setMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    // const [page, setPage] = useState(1);
 
     const fetchMovies = async page => {
         setIsLoading(true);
         const response = await getUpcoming(page);
-        setMovies(response);
-        setIsLoading(false);
+        setTimeout(() => {
+            setMovies(response);
+            setIsLoading(false);
+        }, 1000);
     };
 
     useEffect(() => {
         fetchMovies();
     }, []);
 
-    // const handlePrevPage = () => {
-    //         setPage(prevPage => (prevPage > 1 ? prevPage - 1 : 1));
-    //     };
-    //
-    //     const handleNextPage = () => {
-    //         setPage(prevPage => prevPage + 1);
-    //     };
-    //
     return (
         <div className="mx-2 lg:container mb-11">
             <div className="flex justify-between mb-4 mt-9">
