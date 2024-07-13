@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { searchMovie } from "../Api"; // pastikan import yang benar
-import MovieCard from "./MovieCard"; // pastikan import yang benar
+import SearchCard from "./SearchCard"; // pastikan import yang benar
 
 const SearchMovies = () => {
     const [query, setQuery] = useState("");
@@ -47,16 +47,15 @@ const SearchMovies = () => {
             {isModalOpen && (
                 <div className="fixed z-50 inset-0 overflow-y-auto flex items-center justify-center left-5 right-5">
                     <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur"></div>
-                    <div className="bg-slate-300 pt-4 border-2 backdrop-blur rounded-lg overflow-hidden w-full max-w-4xl max-h-[80vh]">
+                    <div className="bg-slate-100 bg-opacity-50 pt-4 border-2 backdrop-blur rounded-lg overflow-hidden w-full max-w-4xl max-h-[80vh]">
                         <div className="flex items-center flex-col overflow-y-scroll max-h-[70vh]">
-
-                            <div className="mt-8 p-4 text-black text-left">
+                            <div className="mt-4 p-4 text-black text-left">
                                 {isLoading ? (
                                     <p>Loading...</p>
                                 ) : (
                                     <div className="grid grid-cols-3 md:grid-cols-3 gap-2 md:gap-4">
                                         {results.map(movie => (
-                                            <MovieCard
+                                            <SearchCard
                                                 key={movie.id}
                                                 movie={movie}
                                             />
