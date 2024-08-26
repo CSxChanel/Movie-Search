@@ -6,6 +6,7 @@ import { getMovieDetails, getMovieVideos } from "../../Api";
 import VideoTrailer from "./VideoTrailer";
 // import "./MovieDetail.css";
 import SkeletonDetail from "./SkeletonDetail.jsx";
+import NavMenu from "../../components/NavMenu/NavMenu.jsx";
 
 const MovieDetail = () => {
     const { id } = useParams();
@@ -48,7 +49,7 @@ const MovieDetail = () => {
     );
 
     return (
-        <div className="mb-20 min-h-screen">
+        <div className="mb-28 min-h-screen">
             <img src={posterUrl} alt={`${movie.title} Poster`} />
             <div className="container">
                 <h1 className="font-primary font-semibold text-3xl my-6">
@@ -69,6 +70,7 @@ const MovieDetail = () => {
                     </div>
                 ))}
             </div>
+            <NavMenu />
         </div>
     );
 };

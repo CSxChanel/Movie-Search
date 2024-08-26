@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "../../assets/avatar.png";
+import { Link } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import { fadeIn } from "../..//variants";
@@ -70,13 +71,18 @@ const Banner = () => {
                             viewport={{ once: false, amount: 0.3 }}
                             className="flex max-w-max gap-x-6 items-center mb-12 mx-auto lg:mx-0"
                         >
-                            <button className="btn btn-lg">Contact Me</button>
-                            <a
-                                href="https://github.com/CSxChanel"
+                            <Link
+                                to="https://wa.me/6282213452856?text=*Hallo!*,%20Agar%20silaturahmi%20tetap%20terjaga%20Pinjam%20dulu%20*Seratus*🙈%20"
+                                className="btn py-1.5 px-5"
+                            >
+                                Contact Me
+                            </Link>
+                            <Link
+                                to="https://github.com/CSxChanel"
                                 className="text-gradient btn-link"
                             >
                                 My Portfolio{" "}
-                            </a>
+                            </Link>
                         </motion.div>
                         <motion.div
                             variants={fadeIn("Up", 0.3)}
@@ -85,18 +91,18 @@ const Banner = () => {
                             viewport={{ once: false, amount: 0.7 }}
                             className="flex text-[20px] gap-x-6 max-w-max mx-auto lg:mx-0"
                         >
-                            <a href="https://github.com/CSxChanel">
+                            <Link to="https://github.com/CSxChanel">
                                 <FaGithub />
-                            </a>
-                            <a href="https://youtube.com/@CSudrajat">
+                            </Link>
+                            <Link to="https://youtube.com/@CSudrajat">
                                 <FaYoutube />
-                            </a>
-                            <a href="https://wa.me/6282213452856?text=*Hallo!*,%20Agar%20silaturahmi%20tetap%20terjaga%20Pinjam%20dulu%20*Seratus*🙈%20">
+                            </Link>
+                            <Link to="https://wa.me/6282213452856?text=*Hallo!*,%20Agar%20silaturahmi%20tetap%20terjaga%20Pinjam%20dulu%20*Seratus*🙈%20">
                                 <FaWhatsapp />
-                            </a>
-                            <a href="https://www.tiktok.com/@au_eeya">
+                            </Link>
+                            <Link to="https://www.tiktok.com/@au_eeya">
                                 <FaTiktok />
-                            </a>
+                            </Link>
                         </motion.div>
                     </div>
                     <motion.div

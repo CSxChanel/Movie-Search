@@ -32,7 +32,7 @@ const MoviePopular = () => {
     };
 
     return (
-        <div className="mx-2 lg:container mb-11">
+        <div className="mx-2 lg:container mb-24">
             <div className="flex justify-between mb-4">
                 <h2 className="text-xl font-primary">Popular</h2>
                 <Toggle

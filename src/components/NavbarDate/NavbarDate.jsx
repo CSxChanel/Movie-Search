@@ -3,7 +3,7 @@ import { IoHome, IoNotificationsOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 //utils
-import  PesanMasuk  from "./pesan-masuk";
+import PesanMasuk from "./pesan-masuk";
 //components
 import DigitalClock from "./DigitalClock";
 import MasehiDate from "./MasehiDate";
@@ -43,7 +43,7 @@ function NavbarDate() {
                         </span>
                     </button>
                 </div>
-                <div className="flex pb-2 mt-2">
+                <div className="flex pb-2 mt-2 text-sm lg:text-xl">
                     <div className="flex gap-x-2 px-2 items-center text-gradient">
                         <BsClock className="text-indigo-400" />
 
@@ -51,7 +51,7 @@ function NavbarDate() {
                     </div>
                     <div className="flex-1 px-2 flex-row text-end justify-items-center text-end text-gradient ">
                         <MasehiDate />
-                        <div className="border-b border-amber-200"></div>
+                        <div className="border-b border-amber-200 my-2"></div>
                         <HijriyahDate />
                     </div>
                 </div>

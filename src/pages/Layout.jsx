@@ -10,7 +10,7 @@ import Nav from "../components/Profile/Nav";
 
 function Layout() {
     return (
-        <>
+        <main className="bg-site bg-cover overflow-hidden bg-no-repeat">
             <Header />
             <Banner />
             <About />
@@ -18,7 +18,7 @@ function Layout() {
             <Work />
             <Contact />
             <Nav />
-        </>
+        </main>
     );
 }
 export default Layout;

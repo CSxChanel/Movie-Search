@@ -9,9 +9,10 @@ import MovieUpcoming from "../components/MoviesSlider/MovieUpcoming";
 import SearchMovie from "../components/SearchMovie";
 // Utils
 import Banner from "../utils/Banner.jsx";
-import ButtonUp from "../utils/ButtonUp";
+// import ButtonUp from "../utils/ButtonUp";
+import NavMenu from "../components/NavMenu/NavMenu.jsx";
 import SkeletonHome from "./SkeletonHome.jsx";
-const Home = () => {
+const Home = ({ changeBackground }) => {
     //Loadong & Skeleton
     const [isLoading, setIsLoading] = useState(true);
 
@@ -28,17 +29,14 @@ const Home = () => {
     }
 
     return (
-        <main
-            id="home"
-            className="bg-site min-h-screen bg-cover overflow-hidden"
-        >
+        <main id="home">
             <NavbarDate />
             <Banner />
             <SearchMovie />
             <MovieUpcoming />
             <MovieTrending />
             <MoviePopular />
-            <ButtonUp />
+            <NavMenu changeBackground={changeBackground} />
         </main>
     );
 };

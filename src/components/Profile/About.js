@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // import CountUp from "react-countup";
 // import { useInView } from "react-intersection-observer";
 // import { motion } from "framer-motion";
@@ -12,14 +13,8 @@ const About = () => {
         <section className="section" id="about">
             <div className="container mx-auto">
                 <div className="flex flex-col lg:flex-row lg:items-center lg:gap-x-36 h-screen">
-                    <div
-
-                        className="flex-1 bg-about bg-contain bg-no-repeat lg:h-[560px] mix-blend-lighten bg-top"
-                    ></div>
-                    <div
-
-                        className="flex-1"
-                    >
+                    <div className="flex-1 bg-about bg-contain bg-no-repeat lg:h-[560px] mix-blend-lighten bg-top"></div>
+                    <div className="flex-1">
                         <h2 className="h2 text-accent">About me.</h2>
                         <h3 className="h3">
                             I am Pengangguran handal and have not worked for
@@ -32,27 +27,21 @@ const About = () => {
                         </p>
                         <div className="flex gap-x-6 lg:gap-x-10 mb-2">
                             <div>
-                                <div className="text-[20px] font-tertiary text-gradient mb-2">
-
-                                </div>
+                                <div className="text-[20px] font-tertiary text-gradient mb-2"></div>
                                 <div className="font-primary text-sm tracing-[2px]">
                                     Years of <br />
                                     Experience
                                 </div>
                             </div>
                             <div>
-                                <div className="text-[20px] font-tertiary text-gradient mb-2">
-
-                                </div>
+                                <div className="text-[20px] font-tertiary text-gradient mb-2"></div>
                                 <div className="font-primary text-sm tracing-[2px]">
                                     Project <br />
                                     Completed
                                 </div>
                             </div>
                             <div>
-                                <div className="text-[20px] font-tertiary text-gradient mb-2">
-
-                                </div>
+                                <div className="text-[20px] font-tertiary text-gradient mb-2"></div>
                                 <div className="font-primary text-sm tracing-[2px]">
                                     Statisfied <br />
                                     Clients
@@ -60,13 +49,18 @@ const About = () => {
                             </div>
                         </div>
                         <div className="flex gap-x-8 items-center">
-                            <button className="btn btn-lg">Contact Me</button>
-                            <a
-                                href="https://github.com/CSxChanel"
+                            <Link
+                                to="https://wa.me/6282213452856?text=*Hallo!*,%20Agar%20silaturahmi%20tetap%20terjaga%20Pinjam%20dulu%20*Seratus*🙈%20"
+                                className="btn py-1.5 px-5"
+                            >
+                                Contact Me
+                            </Link>
+                            <Link
+                                to="https://github.com/CSxChanel"
                                 className="text-gradient btn-link"
                             >
                                 My Portfolio
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
