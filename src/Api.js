@@ -29,7 +29,6 @@ export const getMovieVideos = async id => {
     }
 };
 
-
 // Get Trending Movies
 export const getTrending = async (page = 1) => {
     try {
@@ -65,6 +64,18 @@ export const getUpcoming = async (page = 1) => {
         return response.data.results;
     } catch (error) {
         console.error("Error fetching upcoming movies:", error);
+        return [];
+    }
+};
+// Get rekomendasi
+export const getRecomend = async id => {
+    try {
+        const response = await axios.get(
+            `${baseUrl}/movie/${id}/recommendations?language=en-US&page=1&api_key=${apiKey}`
+        );
+        return response.data.results;
+    } catch (error) {
+        console.error("Error fetching recommens movie:", error);
         return [];
     }
 };

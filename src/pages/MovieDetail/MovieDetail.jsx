@@ -6,6 +6,7 @@ import { getMovieDetails, getMovieVideos } from "../../Api";
 import VideoTrailer from "./VideoTrailer";
 // import "./MovieDetail.css";
 import SkeletonDetail from "./SkeletonDetail.jsx";
+import MovieRecomend from "../../components/MoviesSlider/MovieRecomend.jsx";
 import NavMenu from "../../components/NavMenu/NavMenu.jsx";
 
 const MovieDetail = () => {
@@ -43,6 +44,7 @@ const MovieDetail = () => {
         );
     }
 
+    const backdropUrl = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`;
     const posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
     const youtubeVideos = videos.filter(
         video => video.site === "YouTube" && video.type === "Trailer"
@@ -50,15 +52,100 @@ const MovieDetail = () => {
 
     return (
         <div className="mb-28 min-h-screen">
-            <img src={posterUrl} alt={`${movie.title} Poster`} />
+            <div className="relative">
+                <img
+                    className="w-full h-[300px] md:h-auto object-cover object-center"
+                    src={backdropUrl}
+                    alt={`${movie.title} Poster`}
+                    style={{
+                        maskImage:
+                            "linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, transparent 100%)",
+                        WebkitMaskImage:
+                            "linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, transparent 100%)"
+                    }}
+                />
+            </div>
+            <div className="flex gap-5 mx-5">
+                <img
+                    className="z-20 md:-my-36 -my-24 mb-14 md:mb-20 w-[45%] md:w-[50%] h-auto md:h-auto object-cover object-center border-2 rounded-2xl"
+                    src={posterUrl}
+                    alt={movie.title}
+                />
+                <div className="flex-col">
+                    <h1 className="font-primary font-semibold text-3xl my-2">
+                        {movie.title}
+                    </h1>
+                    <p className="font-bold">
+                        Genres :{" "}
+                        <span className="bg-slate-700 px-2 rounded-xl">
+                            {movie.genres.map(genre => genre.name).join(", ")}
+                        </span>
+                    </p>
+                </div>
+            </div>
+
             <div className="container">
-                <h1 className="font-primary font-semibold text-3xl my-6">
-                    {movie.title}
-                </h1>
                 <p className="font-bold my-2">
-                    Release Date: {movie.release_date}
+                    Release Date :{" "}
+                    <span className="bg-slate-700 px-2 rounded-xl">
+                        {movie.release_date}
+                    </span>
                 </p>
-                <p className="mb-2">Overview: {movie.overview}</p>
+
+                <p className="font-bold my-2">
+                    Status :{" "}
+                    <span className="bg-slate-700 px-2 rounded-xl">
+                        {movie.status}
+                    </span>
+                </p>
+                <p className="font-bold my-2">
+                    Production_Countries :{" "}
+                    <span className="bg-slate-700 px-2 rounded-xl">
+                        {movie.production_countries
+                            .map(country => country.name)
+                            .join(", ")}
+                    </span>
+                </p>
+                <p className="mb-2 font-bold">
+                    Overview :{" "}
+                    <span className="bg-slate-700 px-2 rounded-xl">
+                        {movie.overview}
+                    </span>
+                </p>
+                <p className="text-xl md:text-2xl text-slate-600 dark:text-zinc-400 space-x-5">
+                    <span role="img" arial-lable="start">
+                        ⭐&nbsp;
+                    </span>
+                    Vote : {movie.vote_average}
+                    <span role="img" arial-lable="start">
+                        ⭐&nbsp;
+                    </span>
+                    Popularity : {movie.popularity}
+                </p>
+            </div>
+            <div className="my-4 mx-4">
+                <p className="font-bold">Production Companies:</p>
+                <div className="flex space-x-2 overflow-x-auto">
+                    {movie.production_companies.map(company => (
+                        <div
+                            key={company.id}
+                            className="flex items-center justify-center border rounded px-12 bg-emerald-700"
+                        >
+                            {company.logo_path ? (
+                                <img
+                                    src={`https://image.tmdb.org/t/p/w200${company.logo_path}`}
+                                    alt={company.name}
+                                    className="w-20 mr-2"
+                                />
+                            ) : (
+                                <div className="w-20 h-12 bg-gray-200 flex items-center justify-center text-gray-600 px-14">
+                                    No Logo
+                                </div>
+                            )}
+                            <p>{company.name}</p>
+                        </div>
+                    ))}
+                </div>
             </div>
             <div className="flex space-x-6 my-10 mx-2 overflow-x-auto scroll-smooth">
                 {youtubeVideos.map(video => (
@@ -70,6 +157,7 @@ const MovieDetail = () => {
                     </div>
                 ))}
             </div>
+            <MovieRecomend />
             <NavMenu />
         </div>
     );
