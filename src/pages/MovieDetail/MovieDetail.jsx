@@ -147,7 +147,8 @@ const MovieDetail = () => {
                     ))}
                 </div>
             </div>
-            <div className="flex space-x-6 my-10 mx-2 overflow-x-auto scroll-smooth">
+            <h2 className="ml-4 my-5 text-xl font-primary">Trailer</h2>
+            <div className="flex space-x-6 my-5 mx-2 overflow-x-auto scroll-smooth">
                 {youtubeVideos.map(video => (
                     <div
                         key={video.id}
