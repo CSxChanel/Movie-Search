@@ -1,3 +1,11 @@
 # https://www.robotstxt.org/robotstxt.html
+
+# *
 User-agent: *
-Disallow:
+Allow: /
+
+# Host
+Host: https://cpsudrajat-movie.netlify.apl
+
+# Sitemaps
+Sitemap: https://cpsudrajat-movie.netlify.app/sitemap.xml
