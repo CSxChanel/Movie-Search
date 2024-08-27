@@ -11,15 +11,6 @@ const MovieRecomend = () => {
     const [movies, setMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    // const fetchMovies = async page => {
-    //     setIsLoading(true);
-    //     const response = await getRecomend(page);
-    //     setTimeout(() => {
-    //         setMovies(response);
-    //         setIsLoading(false);
-    //     }, 1000);
-    // };
-
     useEffect(() => {
         const fetchMovieData = async () => {
             try {
@@ -27,13 +18,13 @@ const MovieRecomend = () => {
                 setTimeout(() => {
                     setMovies(movieRecomends);
                     setIsLoading(false);
-                }, 1000);
+                }, 500);
             } catch (error) {
                 console.error("Error fetching movie data:", error);
             }
         };
         fetchMovieData();
-    }, []);
+    }, [id]);
 
     return (
         <div className="mx-2 lg:container mb-11">

@@ -1,11 +1,5 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 const Header = () => {
-    const [klikMee, setKlikMee] = useState(false);
-    const handleKlikMee = () => {
-        setKlikMee(true);
-    };
-
     return (
         <header className="py-8">
             <div className="container mx-auto">

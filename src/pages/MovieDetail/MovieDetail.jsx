@@ -24,7 +24,7 @@ const MovieDetail = () => {
                     setMovie(movieDetails);
                     setVideos(movieVideos);
                     setIsLoading(false);
-                }, 2000); // Delay selama 1 detik
+                }, 500); // Delay selama 1 detik
             } catch (error) {
                 console.error("Error fetching movie data:", error);
             }
@@ -65,14 +65,14 @@ const MovieDetail = () => {
                     }}
                 />
             </div>
-            <div className="flex gap-5 mx-5">
+            <div className="container flex">
                 <img
                     className="z-20 md:-my-36 -my-24 mb-14 md:mb-20 w-[45%] md:w-[50%] h-auto md:h-auto object-cover object-center border-2 rounded-2xl"
                     src={posterUrl}
                     alt={movie.title}
                 />
-                <div className="flex-col">
-                    <h1 className="font-primary font-semibold text-3xl my-2">
+                <div className="flex-col px-5">
+                    <h1 className="font-primary font-semibold text-xl my-2">
                         {movie.title}
                     </h1>
                     <p className="font-bold">
@@ -108,7 +108,7 @@ const MovieDetail = () => {
                 </p>
                 <p className="mb-2 font-bold">
                     Overview :{" "}
-                    <span className="bg-slate-700 px-2 rounded-xl">
+                    <span className="bg-slate-700 px-2 rounded-xl text-sm">
                         {movie.overview}
                     </span>
                 </p>

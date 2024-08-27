@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { BiHomeAlt, BiUser } from "react-icons/bi";
 import { CgExtensionRemove, CgExtensionAdd } from "react-icons/cg";
-import { TbWorldSearch } from "react-icons/tb";
+
 import { SiTurbosquid } from "react-icons/si";
 import { Link } from "react-router-dom";
 
