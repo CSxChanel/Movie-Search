@@ -6,6 +6,7 @@ import { getMovieDetails, getMovieVideos } from "../../Api";
 import VideoTrailer from "./VideoTrailer";
 // import "./MovieDetail.css";
 import SkeletonDetail from "./SkeletonDetail.jsx";
+import GetAktor from "../../components/getAktor/getAktor.jsx";
 import MovieRecomend from "../../components/MoviesSlider/MovieRecomend.jsx";
 import NavMenu from "../../components/NavMenu/NavMenu.jsx";
 
@@ -123,6 +124,7 @@ const MovieDetail = () => {
                     Popularity : {movie.popularity}
                 </p>
             </div>
+            <GetAktor />
             <div className="my-4 mx-4">
                 <p className="font-bold">Production Companies:</p>
                 <div className="flex space-x-2 overflow-x-auto">

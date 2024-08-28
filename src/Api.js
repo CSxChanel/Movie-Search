@@ -2,12 +2,24 @@ import axios from "axios";
 
 const apiKey = process.env.REACT_APP_APIKEY;
 const baseUrl = process.env.REACT_APP_BASEURL;
+// GetCast
+export const getCast = async id => {
+    try {
+        const response = await axios.get(
+            `${baseUrl}/movie/${id}/credits?language=en-US&api_key=${apiKey}`
+        );
+        return response.data.cast || [];
+    } catch (error) {
+        console.error("Error fetching data cast:", error);
+        return [];
+    }
+};
 
 // Get Movie Details
 export const getMovieDetails = async id => {
     try {
         const response = await axios.get(
-            `${baseUrl}/movie/${id}?api_key=${apiKey}&language=en-US`
+            `${baseUrl}/movie/${id}?language=en-US&api_key=${apiKey}`
         );
         return response.data;
     } catch (error) {
@@ -20,7 +32,7 @@ export const getMovieDetails = async id => {
 export const getMovieVideos = async id => {
     try {
         const response = await axios.get(
-            `${baseUrl}/movie/${id}/videos?api_key=${apiKey}&language=en-US`
+            `${baseUrl}/movie/${id}/videos?language=en-US&api_key=${apiKey}`
         );
         return response.data.results;
     } catch (error) {
