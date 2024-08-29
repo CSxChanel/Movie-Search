@@ -9,7 +9,6 @@ import GetAktor from "../../components/getAktor/getAktor.jsx";
 import MovieRecomend from "../../components/MoviesSlider/MovieRecomend.jsx";
 import NavMenu from "../../components/NavMenu/NavMenu.jsx";
 
-
 const MovieDetail = ({ changeBackground }) => {
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
@@ -45,12 +44,10 @@ const MovieDetail = ({ changeBackground }) => {
     const youtubeVideos = videos.filter(
         video => video.site === "YouTube" && video.type === "Trailer"
     );
-    
+
     return (
         <>
             <Helmet>
-                
-                
                 <title>{movie.title}</title>
                 <meta name="title" content={movie.title} />
                 <meta name="description" content={movie.overview} />
@@ -60,11 +57,10 @@ const MovieDetail = ({ changeBackground }) => {
                 <meta property="og:url" content={window.location.href} />
                 <meta property="og:type" content="website" />
                 <meta property="og:site_name" content="Movie Search" />
-                                {/* Twitter Cards */}
+                {/* Twitter Cards */}
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={movie.title} />
                 <meta name="twitter:description" content={movie.overview} />
-                
             </Helmet>
             <div className="mb-28 min-h-screen">
                 <div className="relative">
@@ -87,11 +83,11 @@ const MovieDetail = ({ changeBackground }) => {
                         alt={movie.title}
                     />
                     <div className="flex-col">
-                        <h1 className="font-primary font-semibold text-xl md:text-3xl my-2">
+                        <h1 className="font-primary font-semibold md:font-bold text-xl md:text-5xl md: md:my-10 my-2">
                             {movie.title}
                         </h1>
-                        <div className="font-bold md:text-2xl flex">
-                            Genres : &nbsp;
+                        <div className="font-bold md:text-5xl flex">
+                            Genres  &nbsp;
                             <ul className="list-disc list-inside">
                                 {movie.genres.map(genre => (
                                     <li key={genre.id}>{genre.name}</li>
