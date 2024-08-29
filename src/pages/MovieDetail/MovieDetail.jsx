@@ -1,5 +1,5 @@
 // src/pages/MovieDetail.jsx
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieDetails, getMovieVideos } from "../../Api";
