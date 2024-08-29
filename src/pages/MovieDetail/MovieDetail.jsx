@@ -9,9 +9,6 @@ import GetAktor from "../../components/getAktor/getAktor.jsx";
 import MovieRecomend from "../../components/MoviesSlider/MovieRecomend.jsx";
 import NavMenu from "../../components/NavMenu/NavMenu.jsx";
 
-const getImageUrl = (image, baseUrl = "https://image.tmdb.org/t/p/w500") => {
-    return `${baseUrl}${image}`;
-};
 
 const MovieDetail = ({ changeBackground }) => {
     const { id } = useParams();
@@ -48,8 +45,8 @@ const MovieDetail = ({ changeBackground }) => {
     const youtubeVideos = videos.filter(
         video => video.site === "YouTube" && video.type === "Trailer"
     );
-    const handleError = error => {
-        console.error("Error fetching image:", error);
+    const getImageUrl = (image, baseUrl = "https://image.tmdb.org/t/p/w500") => {
+    return `${baseUrl}${image}`;
     };
 
     return (
@@ -69,6 +66,16 @@ const MovieDetail = ({ changeBackground }) => {
                 <meta property="og:url" content={window.location.href} />
                 <meta property="og:type" content="website" />
                 <meta property="og:site_name" content="Movie Search" />
+                                {/* Twitter Cards */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={movie.title} />
+                <meta name="twitter:description" content={movie.overview} />
+                <meta
+                    name="twitter:image"
+                    content={
+                        movie.poster_path ? getImageUrl(movie.poster_path) : ""
+                    }
+                />
             </Helmet>
             <div className="mb-28 min-h-screen">
                 <div className="relative">
