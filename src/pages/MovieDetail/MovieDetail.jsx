@@ -9,6 +9,10 @@ import GetAktor from "../../components/getAktor/getAktor.jsx";
 import MovieRecomend from "../../components/MoviesSlider/MovieRecomend.jsx";
 import NavMenu from "../../components/NavMenu/NavMenu.jsx";
 
+const getImageUrl = (image, baseUrl = "https://image.tmdb.org/t/p/w500") => {
+    return `${baseUrl}${image}`;
+};
+
 const MovieDetail = ({ changeBackground }) => {
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
@@ -38,21 +42,30 @@ const MovieDetail = ({ changeBackground }) => {
     if (isLoading) {
         return <SkeletonDetail />;
     }
-
     const backdropUrl = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`;
     const posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+
     const youtubeVideos = videos.filter(
         video => video.site === "YouTube" && video.type === "Trailer"
     );
+    const handleError = error => {
+        console.error("Error fetching image:", error);
+    };
 
     return (
         <>
             <Helmet>
+                <meta
+                    property="og:image"
+                    content={
+                        movie.poster_path ? getImageUrl(movie.poster_path) : ""
+                    }
+                />
                 <title>{movie.title}</title>
                 <meta name="description" content={movie.overview} />
                 <meta property="og:title" content={movie.title} />
                 <meta property="og:description" content={movie.overview} />
-                <meta property="og:image" content={backdropUrl} />
+
                 <meta property="og:url" content={window.location.href} />
                 <meta property="og:type" content="website" />
                 <meta property="og:site_name" content="Movie Search" />
