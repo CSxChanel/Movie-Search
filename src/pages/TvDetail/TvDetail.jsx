@@ -55,7 +55,7 @@ const TvDetail = ({ changeBackground }) => {
                 <meta name="description" content={tv.overview} />
                 <meta property="og:title" content={tv.name} />
                 <meta property="og:description" content={tv.overview} />
-                <meta property="og:image" content={backdropUrl} />
+                
                 <meta property="og:url" content={window.location.href} />
                 <meta property="og:type" content="website" />
                 <meta property="og:site_name" content="Movie Search" />

@@ -52,7 +52,6 @@ const MovieDetail = ({ changeBackground }) => {
                 
                 
                 <title>{movie.title}</title>
-                <meta property="og:image" conten={posterUrl} />
                 <meta name="title" content={movie.title} />
                 <meta name="description" content={movie.overview} />
                 <meta property="og:title" content={movie.title} />
