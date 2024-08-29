@@ -54,10 +54,9 @@ const MovieDetail = ({ changeBackground }) => {
             <Helmet>
                 <meta
                     property="og:image"
-                    content={
-                        movie.backdrop_path ? getImageUrl(movie.backdrop_path) : ""
-                    }
+                    content="https://image.tmdb.org/t/p/w500/4gOB72zD9udHk3jAR0reHwgURZp.jpg"
                 />
+                
                 <title>{movie.title}</title>
                 <meta name="description" content={movie.overview} />
                 <meta property="og:title" content={movie.title} />
