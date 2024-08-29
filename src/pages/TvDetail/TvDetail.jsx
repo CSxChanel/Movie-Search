@@ -85,7 +85,7 @@ const TvDetail = ({ changeBackground }) => {
                             {tv.name}
                         </h1>
                         <div className="font-bold md:text-2xl flex">
-                            Genres : &nbsp;
+                            Genres  &nbsp;
                             <ul className="list-disc list-inside">
                                 {tv.genres.map(genre => (
                                     <li key={genre.id}>{genre.name}</li>
