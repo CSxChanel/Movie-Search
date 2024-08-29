@@ -45,17 +45,11 @@ const MovieDetail = ({ changeBackground }) => {
     const youtubeVideos = videos.filter(
         video => video.site === "YouTube" && video.type === "Trailer"
     );
-    const getImageUrl = (image, baseUrl = "https://image.tmdb.org/t/p/w500") => {
-    return `${baseUrl}${image}`;
-    };
-
+    
     return (
         <>
             <Helmet>
-                <meta
-                    property="og:image"
-                    content="https://cpsudrajat-movie.vercel.app/bg-movie.png"
-                />
+                
                 
                 <title>{movie.title}</title>
                 <meta name="description" content={movie.overview} />
@@ -69,12 +63,7 @@ const MovieDetail = ({ changeBackground }) => {
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={movie.title} />
                 <meta name="twitter:description" content={movie.overview} />
-                <meta
-                    name="twitter:image"
-                    content={
-                        movie.poster_path ? getImageUrl(movie.poster_path) : ""
-                    }
-                />
+                
             </Helmet>
             <div className="mb-28 min-h-screen">
                 <div className="relative">
