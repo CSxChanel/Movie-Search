@@ -58,7 +58,7 @@ const MovieDetail = ({ changeBackground }) => {
                 <meta
                     property="og:image"
                     content={
-                        movie.poster_path ? getImageUrl(movie.poster_path) : ""
+                        movie.backdrop_path ? getImageUrl(movie.backdrop_path) : ""
                     }
                 />
                 <title>{movie.title}</title>
