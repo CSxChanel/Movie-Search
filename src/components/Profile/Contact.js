@@ -32,16 +32,22 @@ const Contact = () => {
                         className="flex-1 border rounded-2xl flex flex-col gap-y-6 pb-24 p-6 items-start"
                     >
                         <input
+                            id="name"
+                            name="name"
                             className="bg-transparent border-b py-3 outline-none w-full placeholder:text-white focus:border-accent transition-all"
                             type="text"
                             placeholder="Your name"
                         />
                         <input
+                            id="email"
+                            name="email"
                             className="bg-transparent border-b py-3 outline-none w-full placeholder:text-white focus:border-accent transition-all"
                             type="text"
                             placeholder="Your email"
                         />
                         <textarea
+                            id="pesan"
+                            name="pesan"
                             className="bg-transparent border-b py-12 outline-none w-full placeholder:text-white focus:border-accent transition-all resize-none mb-12"
                             placeholder="Your message"
                         ></textarea>

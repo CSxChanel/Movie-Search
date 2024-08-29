@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const NavMenu = ({ changeBackground }) => {
     const [changeUp, setChangUp] = useState("hidden");
     const changeScrollUp = () => {
-        if (window.scrollY > 90) {
+        if (window.scrollY > 100) {
             setChangUp(false);
         } else {
             setChangUp("hidden");
@@ -19,45 +19,51 @@ const NavMenu = ({ changeBackground }) => {
         window.addEventListener("scroll", changeScrollUp);
     });
     return (
-        <main className={changeUp}>
-            <nav className="md:hidden fixed bottom-2 lg:bottom-8 w-full  z-50">
+        <>
+            <nav
+                className={`${changeUp} md:hidden fixed bottom-2 lg:bottom-8 w-full  z-50`}
+            >
                 <div className="container">
                     <div className="w-full bg-black/20 h-[80px] backdrop-blur-2xl border rounded-full mx-w-[460px] mx-auto px-5 py-2 flex items-center justify-between text-3xl text-slate-100">
                         <Link
                             to="/"
-                            className="cursor-pointer hover:text-amber-200"
+                            className="cursor-pointer hover:text-amber-200 flex flex-col items-center"
                         >
                             <BiHomeAlt />
+                            <p className="text-sm">Home</p>
                         </Link>
                         <Link
-                            to="popular"
-                            className="cursor-pointer hover:text-amber-200"
+                            to="/tv-discover"
+                            className="cursor-pointer hover:text-amber-200 flex flex-col items-center"
                         >
                             <CgExtensionRemove />
+                            <p className="text-sm">Tv-Show</p>
                         </Link>
                         <button
                             onClick={changeBackground}
                             className="cursor-pointer text-[60px] animate-spin
-                            hover:text-amber-200"
+                            hover:text-amber-200 flex flex-col items-center"
                         >
                             <SiTurbosquid />
                         </button>
                         <Link
-                            to="tranding"
-                            className="cursor-pointer hover:text-amber-200"
+                            to="/movie-discover"
+                            className="cursor-pointer hover:text-amber-200 flex flex-col items-center"
                         >
                             <CgExtensionAdd />
+                            <p className="text-sm">All-Movies</p>
                         </Link>
                         <Link
                             to="/autor"
-                            className="cursor-pointer hover:text-amber-200"
+                            className="cursor-pointer hover:text-amber-200 flex flex-col items-center"
                         >
                             <BiUser />
+                            <p className="text-sm">About</p>
                         </Link>
                     </div>
                 </div>
             </nav>
-        </main>
+        </>
     );
 };
 

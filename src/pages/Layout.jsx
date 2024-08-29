@@ -9,6 +9,7 @@ import Contact from "../components/Profile/Contact";
 import Nav from "../components/Profile/Nav";
 
 function Layout() {
+	window.scrollTo(0, 0);
     return (
         <main className="bg-site bg-cover overflow-hidden bg-no-repeat">
             <Header />

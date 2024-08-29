@@ -11,6 +11,9 @@ import Layout from "./pages/Layout";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ComingSoon from "./pages/ComingSoon";
+import TvDiscover from "./components/TvSlider/TvDiscover.jsx";
+import MovieDiscover from "./components/MoviesSlider/MovieDiscover.jsx";
+import TvDetail from "./pages/TvDetail/TvDetail.jsx";
 
 function App() {
     const [bgClass, setBgClass] = useState("bg-site");
@@ -37,12 +40,31 @@ function App() {
                     path="/"
                     element={<Home changeBackground={changeBackground} />}
                 />
-                <Route path="/movie/:id" element={<MovieDetail />} />
+                <Route
+                    path="/movie/:id"
+                    element={
+                        <MovieDetail changeBackground={changeBackground} />
+                    }
+                />
                 <Route path="/autor" element={<Layout />} />
                 <Route path="/login" Component={Login} />
                 <Route path="/comingsoon" Component={ComingSoon} />
                 <Route path="/daftar" Component={Register} />
                 <Route path="*" element={<NotFound />} />
+                <Route
+                    path="/tv-discover"
+                    element={<TvDiscover changeBackground={changeBackground} />}
+                />
+                <Route
+                    path="/movie-discover"
+                    element={
+                        <MovieDiscover changeBackground={changeBackground} />
+                    }
+                />
+                <Route
+                    path="/tv/:id"
+                    element={<TvDetail changeBackground={changeBackground} />}
+                />
             </Routes>
         </div>
     );

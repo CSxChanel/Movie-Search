@@ -15,16 +15,67 @@ export const getCast = async id => {
     }
 };
 
-// Get Movie Details
-export const getMovieDetails = async id => {
+// Get Tv Detail
+export const getTvDetails = async id => {
     try {
         const response = await axios.get(
-            `${baseUrl}/movie/${id}?language=en-US&api_key=${apiKey}`
+            `${baseUrl}/tv/${id}?language=en-US&api_key=${apiKey}`
         );
         return response.data;
     } catch (error) {
-        console.error("Error fetching movie details:", error);
+        console.error("Error fetching tv details:", error);
         return null;
+    }
+};
+
+// Get Tv Playing
+export const getTvPlaying = async id => {
+    try {
+        const response = await axios.get(
+            `${baseUrl}/tv/${id}/videos?language=en-US&api_key=${apiKey}`
+        );
+        return response.data.results;
+    } catch (error) {
+        console.error("Error fetching tv videos:", error);
+        return [];
+    }
+};
+
+// Get Tv trending
+export const getTvDiscover = async (page = 1) => {
+    try {
+        const response = await axios.get(
+            `${baseUrl}/trending/tv/day?language=en-US&page=${page}&region=ID&api_key=${apiKey}`
+        );
+        return response.data.results;
+    } catch (error) {
+        console.error("Error fetching Tv top_rated movies:", error);
+        return [];
+    }
+};
+// Get Tv Top Rated
+export const getTvTopRated = async (page = 1) => {
+    try {
+        const response = await axios.get(
+            `${baseUrl}/tv/top_rated?language=en-US&page=${page}&region=ID&api_key=${apiKey}`
+        );
+        return response.data.results;
+    } catch (error) {
+        console.error("Error fetching Tv top_rated movies:", error);
+        return [];
+    }
+};
+
+// Get Tvrekomendasi
+export const getTvRecomend = async id => {
+    try {
+        const response = await axios.get(
+            `${baseUrl}/tv/${id}/recommendations?language=en-US&page=1&api_key=${apiKey}`
+        );
+        return response.data.results;
+    } catch (error) {
+        console.error("Error fetching recommens movie:", error);
+        return [];
     }
 };
 
@@ -40,16 +91,41 @@ export const getMovieVideos = async id => {
         return [];
     }
 };
-
-// Get Trending Movies
-export const getTrending = async (page = 1) => {
+// Get Movie Details
+export const getMovieDetails = async id => {
     try {
         const response = await axios.get(
-            `${baseUrl}/trending/movie/day?language=en-US&page=${page}&region=ID&api_key=${apiKey}`
+            `${baseUrl}/movie/${id}?language=en-US&api_key=${apiKey}`
+        );
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching movie details:", error);
+        return null;
+    }
+};
+
+// Get Now_playing Movies
+export const getNowPlaying = async (page = 1) => {
+    try {
+        const response = await axios.get(
+            `${baseUrl}/movie/now_playing?language=en-US&page=${page}&region=ID&api_key=${apiKey}`
         );
         return response.data.results;
     } catch (error) {
-        console.error("Error fetching trending movies:", error);
+        console.error("Error fetching Playing movies:", error);
+        return [];
+    }
+};
+
+// Get Top Rated Movies
+export const getTopRated = async (page = 1) => {
+    try {
+        const response = await axios.get(
+            `${baseUrl}/movie/top_rated?language=en-US&page=${page}&region=ID&api_key=${apiKey}`
+        );
+        return response.data.results;
+    } catch (error) {
+        console.error("Error fetching top_rated movies:", error);
         return [];
     }
 };
@@ -67,6 +143,19 @@ export const getPopular = async (page = 1) => {
     }
 };
 
+// Get Trending
+export const getTrending = async (page = 1) => {
+    try {
+        const response = await axios.get(
+            `${baseUrl}/trending/movie/day?language=en-US&page=${page}&region=ID&api_key=${apiKey}`
+        );
+        return response.data.results;
+    } catch (error) {
+        console.error("Error fetching Tranding movies:", error);
+        return [];
+    }
+};
+
 // Get Upcoming Movies
 export const getUpcoming = async (page = 1) => {
     try {
@@ -79,6 +168,7 @@ export const getUpcoming = async (page = 1) => {
         return [];
     }
 };
+
 // Get rekomendasi
 export const getRecomend = async id => {
     try {

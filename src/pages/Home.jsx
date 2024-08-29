@@ -3,8 +3,10 @@
 import React, { useState, useEffect } from "react";
 // Components
 import NavbarDate from "../components/NavbarDate/NavbarDate";
+import MovieNowPlaying from "../components/MoviesSlider/MovieNowPlaying.jsx";
 import MovieTrending from "../components/MoviesSlider/MovieTrending";
 import MoviePopular from "../components/MoviesSlider/MoviePopular";
+import MovieTopRated from "../components/MoviesSlider/MovieTopRated.jsx";
 import MovieUpcoming from "../components/MoviesSlider/MovieUpcoming";
 import SearchMovie from "../components/SearchMovie";
 // Utils
@@ -34,7 +36,9 @@ const Home = ({ changeBackground }) => {
             <Banner />
             <SearchMovie />
             <MovieUpcoming />
+            <MovieNowPlaying />
             <MovieTrending />
+            <MovieTopRated />
             <MoviePopular />
             <NavMenu changeBackground={changeBackground} />
         </main>

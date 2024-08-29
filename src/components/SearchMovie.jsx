@@ -34,6 +34,8 @@ const SearchMovies = () => {
     return (
         <div className="relative container items-center flex flex-col">
             <input
+                id="text"
+                name="text"
                 type="text"
                 value={query}
                 onChange={handleChange}

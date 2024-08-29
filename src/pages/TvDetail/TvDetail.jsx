@@ -1,46 +1,49 @@
-// src/pages/MovieDetail.jsx
-import { Helmet } from "react-helmet-async";
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
-import { getMovieDetails, getMovieVideos } from "../../Api";
-import VideoTrailer from "./VideoTrailer";
-import SkeletonDetail from "./SkeletonDetail.jsx";
+import { getTvDetails, getTvPlaying } from "../../Api";
+import TvPlaying from "./TvPlaying.jsx";
+import TvSkeletonDetail from "./TvSkeletonDetail.jsx";
 import GetAktor from "../../components/getAktor/getAktor.jsx";
-import MovieRecomend from "../../components/MoviesSlider/MovieRecomend.jsx";
+import TvRecomend from "../../components/TvSlider/TvRecomend.jsx";
 import NavMenu from "../../components/NavMenu/NavMenu.jsx";
 
-const MovieDetail = ({ changeBackground }) => {
+const TvDetail = ({ changeBackground }) => {
     const { id } = useParams();
-    const [movie, setMovie] = useState(null);
+    const [tv, setTv] = useState(null);
     const [videos, setVideos] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         window.scrollTo(0, 0);
         setIsLoading(true);
-        const fetchMovieData = async () => {
+        const fetchTvData = async () => {
             try {
-                const movieDetails = await getMovieDetails(id);
-                const movieVideos = await getMovieVideos(id);
+                const tvInDetails = await getTvDetails(id);
+                const tvInVideos = await getTvPlaying(id);
                 setTimeout(() => {
-                    setMovie(movieDetails);
-                    setVideos(movieVideos);
+                    setTv(tvInDetails);
+                    setVideos(tvInVideos);
                     setIsLoading(false);
                 }, 500);
             } catch (error) {
-                console.error("Error fetching movie data:", error);
+                console.error("Error fetching tv data:", error);
             }
         };
 
-        fetchMovieData();
+        fetchTvData();
     }, [id]);
 
     if (isLoading) {
-        return <SkeletonDetail />;
+        return (
+            <>
+                <TvSkeletonDetail />
+            </>
+        );
     }
 
-    const backdropUrl = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`;
-    const posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+    const backdropUrl = `https://image.tmdb.org/t/p/w500${tv.backdrop_path}`;
+    const posterUrl = `https://image.tmdb.org/t/p/w500${tv.poster_path}`;
     const youtubeVideos = videos.filter(
         video => video.site === "YouTube" && video.type === "Trailer"
     );
@@ -48,10 +51,10 @@ const MovieDetail = ({ changeBackground }) => {
     return (
         <>
             <Helmet>
-                <title>{movie.title}</title>
-                <meta name="description" content={movie.overview} />
-                <meta property="og:title" content={movie.title} />
-                <meta property="og:description" content={movie.overview} />
+                <title>{tv.name}</title>
+                <meta name="description" content={tv.overview} />
+                <meta property="og:title" content={tv.name} />
+                <meta property="og:description" content={tv.overview} />
                 <meta property="og:image" content={backdropUrl} />
                 <meta property="og:url" content={window.location.href} />
                 <meta property="og:type" content="website" />
@@ -62,7 +65,7 @@ const MovieDetail = ({ changeBackground }) => {
                     <img
                         className="w-full h-[300px] md:h-auto object-cover object-center"
                         src={backdropUrl}
-                        alt={`${movie.title} Poster`}
+                        alt={`${tv.name} Poster`}
                         style={{
                             maskImage:
                                 "linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, transparent 100%)",
@@ -75,16 +78,16 @@ const MovieDetail = ({ changeBackground }) => {
                     <img
                         className="mr-5 z-20 md:-my-36 -my-24 mb-14 md:mb-20 w-[45%] md:w-[50%] h-auto md:h-auto object-cover object-center border-2 rounded-2xl"
                         src={posterUrl}
-                        alt={movie.title}
+                        alt={tv.name}
                     />
                     <div className="flex-col">
                         <h1 className="font-primary font-semibold text-xl md:text-3xl my-2">
-                            {movie.title}
+                            {tv.name}
                         </h1>
                         <div className="font-bold md:text-2xl flex">
                             Genres : &nbsp;
                             <ul className="list-disc list-inside">
-                                {movie.genres.map(genre => (
+                                {tv.genres.map(genre => (
                                     <li key={genre.id}>{genre.name}</li>
                                 ))}
                             </ul>
@@ -96,20 +99,20 @@ const MovieDetail = ({ changeBackground }) => {
                     <p className="font-bold md:text-2xl my-2">
                         Release Date :
                         <span className="bg-slate-700 px-2 rounded-xl">
-                            {movie.release_date}
+                            {tv.first_air_date}
                         </span>
                     </p>
 
                     <p className="font-bold md:text-2xl my-2">
                         Status :{" "}
                         <span className="bg-slate-700 px-2 rounded-xl">
-                            {movie.status}
+                            {tv.status}
                         </span>
                     </p>
                     <p className="font-bold md:text-2xl my-2">
                         Production_Countries :{" "}
                         <span className="bg-slate-700 px-2 rounded-xl">
-                            {movie.production_countries
+                            {tv.production_countries
                                 .map(country => country.name)
                                 .join(", ")}
                         </span>
@@ -117,18 +120,18 @@ const MovieDetail = ({ changeBackground }) => {
                     <p className="mb-2 font-bold md:text-2xl">
                         Overview :{" "}
                         <span className="bg-slate-700 px-2 rounded-xl text-sm md:text-xl">
-                            {movie.overview}
+                            {tv.overview}
                         </span>
                     </p>
                     <p className="text-xl md:text-2xl text-slate-600 dark:text-zinc-400 space-x-5">
                         <span role="img" arial-lable="start">
                             ⭐&nbsp;
                         </span>
-                        Vote : {movie.vote_average}
+                        Vote : {tv.vote_average}
                         <span role="img" arial-lable="start">
                             ⭐&nbsp;
                         </span>
-                        Popularity : {movie.popularity}
+                        Popularity : {tv.popularity}
                     </p>
                 </div>
                 <GetAktor />
@@ -137,7 +140,7 @@ const MovieDetail = ({ changeBackground }) => {
                         Production Companies:
                     </p>
                     <div className="flex space-x-2 overflow-x-auto">
-                        {movie.production_companies.map(company => (
+                        {tv.production_companies.map(company => (
                             <div
                                 key={company.id}
                                 className="flex items-center justify-center border rounded px-12 bg-emerald-700"
@@ -167,15 +170,15 @@ const MovieDetail = ({ changeBackground }) => {
                             key={video.id}
                             className="lg:w-[500px] md:w-[450px] lg:h-[300px] md:h-[250px] w-[360px] h-[225px] rounded-lg border"
                         >
-                            <VideoTrailer video={video} />
+                            <TvPlaying video={video} />
                         </div>
                     ))}
                 </div>
-                <MovieRecomend />
+                <TvRecomend />
                 <NavMenu changeBackground={changeBackground} />
             </div>
         </>
     );
 };
 
-export default MovieDetail;
+export default TvDetail;

@@ -1,7 +1,7 @@
 // MovieSkeleton.jsx
 import React from "react";
 
-const SkeletonDetail = () => {
+const TvSkeletonDetail = () => {
     const skeletonArray = new Array(10).fill(0);
     return (
         <div className="mb-28 w-full min-h-screen animate-pulse">
@@ -92,4 +92,4 @@ const SkeletonDetail = () => {
     );
 };
 
-export default SkeletonDetail;
+export default TvSkeletonDetail;
