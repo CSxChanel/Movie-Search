@@ -54,7 +54,7 @@ const MovieDetail = ({ changeBackground }) => {
             <Helmet>
                 <meta
                     property="og:image"
-                    content="https://image.tmdb.org/t/p/w500/4gOB72zD9udHk3jAR0reHwgURZp.jpg"
+                    content="https://cpsudrajat-movie.vercel.app/bg-movie.png"
                 />
                 
                 <title>{movie.title}</title>
