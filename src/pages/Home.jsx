@@ -1,5 +1,5 @@
 // Home.jsx
-
+import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 // Components
 import NavbarDate from "../components/NavbarDate/NavbarDate";
@@ -15,6 +15,13 @@ import Banner from "../utils/Banner.jsx";
 import NavMenu from "../components/NavMenu/NavMenu.jsx";
 import SkeletonHome from "./SkeletonHome.jsx";
 const Home = ({ changeBackground }) => {
+    const navigate = useNavigate();
+    const handleTvDiscover = () => {
+        navigate("/tv-discover");
+    };
+    const handleMovieDiscover = () => {
+        navigate("/movie-discover");
+    };
     //Loadong & Skeleton
     const [isLoading, setIsLoading] = useState(true);
 
@@ -40,7 +47,13 @@ const Home = ({ changeBackground }) => {
             <MovieTrending />
             <MovieTopRated />
             <MoviePopular />
-            <NavMenu changeBackground={changeBackground} />
+            <NavMenu
+                changeBackground={changeBackground}
+                onClick1={handleTvDiscover}
+                text1={"Tv-Show"}
+                onClick2={handleMovieDiscover}
+                text2={"All-Movie"}
+            />
         </main>
     );
 };

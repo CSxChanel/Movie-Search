@@ -5,7 +5,7 @@ import { CgExtensionRemove, CgExtensionAdd } from "react-icons/cg";
 import { SiTurbosquid } from "react-icons/si";
 import { Link } from "react-router-dom";
 
-const NavMenu = ({ changeBackground }) => {
+const NavMenu = ({ text1, text2, onClick1, onClick2, changeBackground }) => {
     const [changeUp, setChangUp] = useState("hidden");
     const changeScrollUp = () => {
         if (window.scrollY > 100) {
@@ -32,13 +32,13 @@ const NavMenu = ({ changeBackground }) => {
                             <BiHomeAlt />
                             <p className="text-sm">Home</p>
                         </Link>
-                        <Link
-                            to="/tv-discover"
+                        <button
+                            onClick={onClick1}
                             className="cursor-pointer hover:text-amber-200 flex flex-col items-center"
                         >
                             <CgExtensionRemove />
-                            <p className="text-sm">Tv-Show</p>
-                        </Link>
+                            <p className="text-sm">{text1}</p>
+                        </button>
                         <button
                             onClick={changeBackground}
                             className="cursor-pointer text-[60px] animate-spin
@@ -46,13 +46,13 @@ const NavMenu = ({ changeBackground }) => {
                         >
                             <SiTurbosquid />
                         </button>
-                        <Link
-                            to="/movie-discover"
+                        <button
+                            onClick={onClick2}
                             className="cursor-pointer hover:text-amber-200 flex flex-col items-center"
                         >
                             <CgExtensionAdd />
-                            <p className="text-sm">All-Movies</p>
-                        </Link>
+                            <p className="text-sm">{text2}</p>
+                        </button>
                         <Link
                             to="/autor"
                             className="cursor-pointer hover:text-amber-200 flex flex-col items-center"
