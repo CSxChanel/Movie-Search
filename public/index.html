@@ -7,22 +7,39 @@
         <meta name="theme-color" content="#000000" />
 
         <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-        <!--         <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> -->
-        <!-- google fonts -->
+
         <link
             href="https://fonts.googleapis.com/css2?family=Aldrich&family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
             rel="stylesheet"
         />
-        <meta
-            property="og:image"
-            content="https://cpsudrajat-movie.vercel.app/cover.png"
-        />
+
         <title>Cpsudrajat || Search-Movie</title>
         <meta
             name="description"
             content="Latihan-1 : Fatching data API_key pencarian movie / tv show menggunakan data TMDb."
         />
         <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const ogImage = document.querySelector(
+                    'meta[property="og:image"]'
+                );
+                const ogUrl = document.querySelector('meta[property="og:url"]');
+                const currentUrl = window.location.href;
+
+                const currentDomain = window.location.origin;
+
+                if (ogImage) {
+                    ogImage.setAttribute(
+                        "content",
+                        `${currentDomain}/cover.png`
+                    );
+                }
+                if (ogUrl) {
+                    ogUrl.setAttribute("content", currentUrl);
+                }
+            });
+        </script>
 
         <script
             defer="defer"
