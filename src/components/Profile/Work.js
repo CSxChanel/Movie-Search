@@ -23,9 +23,13 @@ const Work = () => {
                                 My Latest <br /> Work
                             </h2>
                             <p className="text-w-sm mb-10">
-                                Lorem do reprehenderit occaecat ipsum do sint
-                                esse occaecat reprehenderit incididunt id
-                                aliquip do magna do eiusmod enim id voluptate
+                                Di bawah ini adalah beberapa projek terbaru yang
+                                telah saya kerjakan, menunjukkan keahlian saya
+                                dalam pengembangan web dan desain antarmuka.
+                                Setiap proyek mencerminkan kemampuan saya dalam
+                                memahami kebutuhan klien dan menerapkannya
+                                menjadi solusi digital yang fungsional dan
+                                estetik.
                             </p>
                             <button className="btn btn-sm">
                                 View All project

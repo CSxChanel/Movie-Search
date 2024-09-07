@@ -1,8 +1,8 @@
 // src/components/SearchMovies.jsx
 
 import React, { useState } from "react";
-import { searchMovie } from "../Api"; // pastikan import yang benar
-import SearchCard from "./SearchCard"; // pastikan import yang benar
+import { searchMovie } from "../Api"; 
+import SearchCard from "./SearchCard"; 
 
 const SearchMovies = () => {
     const [query, setQuery] = useState("");

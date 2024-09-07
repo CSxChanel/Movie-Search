@@ -4,6 +4,7 @@ import { CgExtensionRemove, CgExtensionAdd } from "react-icons/cg";
 
 import { SiTurbosquid } from "react-icons/si";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const NavMenu = ({ text1, text2, onClick1, onClick2, changeBackground }) => {
     const [changeUp, setChangUp] = useState("hidden");
@@ -20,7 +21,9 @@ const NavMenu = ({ text1, text2, onClick1, onClick2, changeBackground }) => {
     });
     return (
         <>
-            <nav
+            <motion.nav
+                initial={{ opacity: 1, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
                 className={`${changeUp} md:hidden fixed bottom-2 lg:bottom-8 w-full  z-50`}
             >
                 <div className="container">
@@ -62,7 +65,7 @@ const NavMenu = ({ text1, text2, onClick1, onClick2, changeBackground }) => {
                         </Link>
                     </div>
                 </div>
-            </nav>
+            </motion.nav>
         </>
     );
 };

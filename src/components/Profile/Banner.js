@@ -3,7 +3,7 @@ import Image from "../../assets/avatar.png";
 import { Link } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
-import { fadeIn } from "../..//variants";
+import { fadeIn } from "../../variants";
 import { FaGithub, FaYoutube, FaWhatsapp, FaTiktok } from "react-icons/fa";
 
 const Banner = () => {
@@ -36,15 +36,15 @@ const Banner = () => {
                                 sequence={[
                                     "Single",
                                     2000,
-                                    "Pengangguran",
+                                    "Web Developer",
                                     2000,
-                                    "Butuh Uang",
+                                    "Frontend Enthusiast",
                                     2000,
-                                    "Banyak Utang",
+                                    "React.js & Next.js Developer",
                                     2000,
-                                    "Gali Lobang",
+                                    "Crafting Interactive Experiences",
                                     2000,
-                                    "Tutup Lobang",
+                                    "Building Modern Web Solutions",
                                     2000
                                 ]}
                                 speed={50}
@@ -54,18 +54,26 @@ const Banner = () => {
                             />
                         </motion.div>
                         <motion.p
-                            variants={fadeIn("Up", 0.3)}
+                            variants={fadeIn("left", 0.3)}
                             initial="hidden"
                             whileInView={"show"}
                             viewport={{ once: false, amount: 0.3 }}
                             className="mb-8 max-w-max mx-auto lg:mx-0"
                         >
-                            et exercitation nisi sit amet dolore voluptate
-                            pariatur est velit magna culpa excepteur irure irure
-                            sunt dolor quis
+                            Saya adalah seorang pengembang web yang memiliki
+                            pengalaman lebih dari 5 tahun dalam berbagai posisi
+                            yang terkait dengan teknisi perawatan mesin,
+                            penjualan, pemasaran, dan merchandising. Selain
+                            pengalaman tersebut, saya juga memiliki minat yang
+                            mendalam di bidang pengembangan web, terutama di
+                            bagian front-end. Saya telah belajar secara otodidak
+                            dengan mengikuti tutorial Bootcamp untuk
+                            mengembangkan keterampilan saya dalam React.js,
+                            JavaScript, TypeScript, Next.js, Bootstrap, Node.js,
+                            dan Tailwind CSS.
                         </motion.p>
                         <motion.div
-                            variants={fadeIn("Up", 0.3)}
+                            variants={fadeIn("right", 0.3)}
                             initial="hidden"
                             whileInView={"show"}
                             viewport={{ once: false, amount: 0.3 }}

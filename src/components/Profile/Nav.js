@@ -26,6 +26,7 @@ const Nav = () => {
                         to="about"
                         activeClass="active"
                         smooth={true}
+                        // offset={90}
                         spy={true}
                         className="cursor-pointer w-[60px] h-[60px] flex items-center justify-center"
                     >
@@ -35,6 +36,7 @@ const Nav = () => {
                         to="services"
                         activeClass="active"
                         smooth={true}
+                        // offset={50}
                         spy={true}
                         className="cursor-pointer w-[60px] h-[60px] flex items-center justify-center"
                     >

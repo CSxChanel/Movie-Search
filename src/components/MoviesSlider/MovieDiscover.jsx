@@ -17,7 +17,7 @@ const MovieDiscover = ({ changeBackground }) => {
         setTimeout(() => {
             setMovies(response);
             setIsLoading(false);
-        }, 500);
+        }, 250);
     };
 
     useEffect(() => {

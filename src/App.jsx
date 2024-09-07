@@ -11,9 +11,9 @@ import Layout from "./pages/Layout";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ComingSoon from "./pages/ComingSoon";
+import TvDetail from "./pages/TvDetail/TvDetail.jsx";
 import TvDiscover from "./components/TvSlider/TvDiscover.jsx";
 import MovieDiscover from "./components/MoviesSlider/MovieDiscover.jsx";
-import TvDetail from "./pages/TvDetail/TvDetail.jsx";
 
 function App() {
     const [bgClass, setBgClass] = useState("bg-site");
