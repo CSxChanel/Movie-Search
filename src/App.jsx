@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
-// components
-
-//Pages
 import Home from "./pages/Home";
 import MovieDetail from "./pages/MovieDetail/MovieDetail.jsx";
 import NotFound from "./pages/NotFound";

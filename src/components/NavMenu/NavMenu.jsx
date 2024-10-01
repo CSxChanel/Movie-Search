@@ -57,7 +57,7 @@ const NavMenu = ({ text1, text2, onClick1, onClick2, changeBackground }) => {
                             <p className="text-sm">{text2}</p>
                         </button>
                         <Link
-                            to="/autor"
+                            to="https://cp-sudrajat.vercel.app/"
                             className="cursor-pointer hover:text-amber-200 flex flex-col items-center"
                         >
                             <BiUser />
