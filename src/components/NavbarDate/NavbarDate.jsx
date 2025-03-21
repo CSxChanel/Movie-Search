@@ -43,13 +43,12 @@ function NavbarDate() {
                         </span>
                     </button>
                 </div>
-                <div className="flex pb-2 mt-2 text-sm lg:text-xl">
-                    <div className="flex gap-x-2 px-2 items-center text-gradient">
+                <div className="flex pb-2 px-2 mt-2 text-sm lg:text-xl">
+                    <div className="flex gap-x-2 mr-2 items-center text-gradient">
                         <BsClock className="text-indigo-400" />
-
                         <DigitalClock />
                     </div>
-                    <div className="flex-1 px-2 flex-row text-end justify-items-center text-end text-gradient ">
+                    <div className="flex-1 flex-row text-end text-gradient ">
                         <MasehiDate />
                         <div className="border-b border-amber-200 my-2"></div>
                         <HijriyahDate />

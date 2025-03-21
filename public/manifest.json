@@ -1,0 +1,22 @@
+{
+    "short_name": "MovieSearch",
+    "name": "Movie Search App",
+    "description": "Cari dan temukan informasi film favoritmu!",
+    "start_url": "/",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "/icons/icon-192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/icons/icon-512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+
+    "theme_color": "#700eff",
+    "background_color": "#0ef5ff"
+}

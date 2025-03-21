@@ -1,4 +1,3 @@
-// Home.jsx
 import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 // Components
@@ -11,27 +10,56 @@ import MovieUpcoming from "../components/MoviesSlider/MovieUpcoming";
 import SearchMovie from "../components/SearchMovie";
 // Utils
 import Banner from "../utils/Banner.jsx";
-// import ButtonUp from "../utils/ButtonUp";
 import NavMenu from "../components/NavMenu/NavMenu.jsx";
 import SkeletonHome from "./SkeletonHome.jsx";
+
 const Home = ({ changeBackground }) => {
     const navigate = useNavigate();
-    const handleTvDiscover = () => {
-        navigate("/tv-discover");
-    };
-    const handleMovieDiscover = () => {
-        navigate("/movie-discover");
-    };
-    //Loadong & Skeleton
+    const handleTvDiscover = () => navigate("/tv-discover");
+    const handleMovieDiscover = () => navigate("/movie-discover");
+
+    // Loading & Skeleton
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsLoading(false);
         }, 250);
-
         return () => clearTimeout(timer);
     }, []);
+
+    // PWA Install
+    const [deferredPrompt, setDeferredPrompt] = useState(null);
+    const [showInstallButton, setShowInstallButton] = useState(false);
+
+    useEffect(() => {
+        const handleBeforeInstallPrompt = (event) => {
+            event.preventDefault();
+            setDeferredPrompt(event);
+            setShowInstallButton(true);
+        };
+
+        window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+
+        return () => {
+            window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+        };
+    }, []);
+
+    const installPWA = () => {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === "accepted") {
+                    console.log("User accepted the install prompt");
+                } else {
+                    console.log("User dismissed the install prompt");
+                }
+                setDeferredPrompt(null);
+                setShowInstallButton(false);
+            });
+        }
+    };
 
     if (isLoading) {
         return <SkeletonHome />;
@@ -47,6 +75,16 @@ const Home = ({ changeBackground }) => {
             <MovieTrending />
             <MovieTopRated />
             <MoviePopular />
+
+            {showInstallButton && (
+                <button
+                    onClick={installPWA}
+                    className="p-2 border border-fuchsia-500 rounded-lg fixed bottom-24 right-8 text-gradient text-sm"
+                >
+                    Install App
+                </button>
+            )}
+
             <NavMenu
                 changeBackground={changeBackground}
                 onClick1={handleTvDiscover}
